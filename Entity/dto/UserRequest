@@ -1,0 +1,64 @@
+package validatorExcepHandling.com.validatorExcepHandling.dto;
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+
+public class UserRequest {
+	@NotNull(message="username shoudn't be null")
+	@NotBlank
+	public String name;
+	@Email(message="Invalid email id")
+	public String email;
+	@Pattern(regexp="^\\d{10}$", message="invalid mobile number")
+	public String mobile;
+	@NotNull(message="Need to chooses")
+	public String gender;
+	@Min(18)
+	@Max(60)
+	public int age;
+	@NotNull(message="Shoudn't be null")
+	public String nationality;
+	
+	public UserRequest() {
+		
+	}
+	
+	public UserRequest(String name, String email, String mobile, String gender, int age, String nationality) {
+		super();
+		this.name = name;
+		this.email = email;
+		this.mobile = mobile;
+		this.gender = gender;
+		this.age = age;
+		this.nationality = nationality;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public String getNationality() {
+		return nationality;
+	}
+
+}
